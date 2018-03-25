@@ -18,7 +18,7 @@ Rails.application.configure do
   # Requires an encryption key in `ENV["RAILS_MASTER_KEY"]` or
   # `config/secrets.yml.key`.
   config.read_encrypted_secrets = true
-  config.action_mailer.default_url_options = { host: "https://matricreport.herokuapp.com" }
+  config.action_mailer.default_url_options = { host: "https://hospitalfilesystem.herokuapp.com" }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {

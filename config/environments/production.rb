@@ -24,8 +24,8 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address:              'mail.domain.com',
-  port:                 '287',
+  address:              'smtp.gmail.com',
+  port:                 '587',
   domain:               'heroku.com',
   user_name:            'vonganiapp@gmail.com',
   password:             'ABC123@q',

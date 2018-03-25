@@ -14,7 +14,6 @@ validates :phone, presence: true, format: { with: regex, :multiline => true }
   def addaddress
  	 self.address = [self.address1, self.address2, self.address3, self.address4].compact.join(', ')
  	 self.role = "administrator"
-    generate_token(:administrator_token)
  	 hospital = Hospital.find(self.hospital_id)
  	 self.hname = hospital.hname
    self.hospital_token = hospital.hospital_token

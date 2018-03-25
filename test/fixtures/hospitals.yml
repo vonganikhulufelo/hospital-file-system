@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hname: MyString
+  htellphone: MyString
+  haddress1: MyString
+  haddress2: MyString
+  haddress3: MyString
+  haddresscode: MyString
+  haddress: MyString
+
+two:
+  hname: MyString
+  htellphone: MyString
+  haddress1: MyString
+  haddress2: MyString
+  haddress3: MyString
+  haddresscode: MyString
+  haddress: MyString

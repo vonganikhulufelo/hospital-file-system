@@ -1,0 +1,27 @@
+<%= form_with(model: pharmacyrecord, local: true) do |form| %>
+  <% if pharmacyrecord.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pharmacyrecord.errors.count, "error") %> prohibited this pharmacyrecord from being saved:</h2>
+
+      <ul>
+      <% pharmacyrecord.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :collected %>
+    <%= form.check_box :collected, id: :pharmacyrecord_collected %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hospital_id %>
+    <%= form.text_field :hospital_id, id: :pharmacyrecord_hospital_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

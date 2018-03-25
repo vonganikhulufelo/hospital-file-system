@@ -1,0 +1,34 @@
+<h1 class="text-center">Wards</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Wname</th>
+      <th>Wardno</th>
+      <th>Hname</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wards.each do |ward| %>
+      <tr>
+        <td><%= ward.wname %></td>
+        <% if ward.wardno == nil || ward.wardno == "" %> 
+        <td></td>
+        <% else %>
+        <td><%= ward.wardno %> </td>
+        <% end %>
+        <td><%= ward.hname %></td>
+        <td><%= link_to 'Show', [ward.hospital,ward] %></td>
+        <td><%= link_to 'Edit', edit_hospital_ward_path(ward.hospital, ward) %></td>
+        <td><%= link_to 'Destroy', hospital_wards_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if can? :create, Ward %>
+<%= link_to 'New Ward', new_hospital_ward_path %>
+<% end %>

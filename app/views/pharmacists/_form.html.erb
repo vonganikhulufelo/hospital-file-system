@@ -1,0 +1,88 @@
+<div class="row">
+<%= form_for([@pharmacist.hospital, @pharmacist]) do |form| %>
+  <% if pharmacist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pharmacist.errors.count, "error") %> prohibited this pharmacist from being saved:</h2>
+
+      <ul>
+      <% pharmacist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="col-md-6">
+  <div class="field">
+    <%= form.label :fname, "First Name" %>
+    <%= form.text_field :fname, id: :pharmacist_fname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lname, "Last Name" %>
+    <%= form.text_field :lname, id: :pharmacist_lname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email, "Email" %>
+    <%= form.email_field :email, id: :pharmacist_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title, "Title" %>
+    <%= form.text_field :title, id: :pharmacist_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address1, "Address" %>
+    <%= form.text_field :address1, id: :pharmacist_address1 %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :address2, "Address" %>
+    <%= form.text_field :address2, id: :pharmacist_address2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address3, "Address" %>
+    <%= form.text_field :address3, id: :pharmacist_address3 %>
+  </div>
+</div>
+  <div class="col-md-6">
+  <div class="field">
+    <%= form.label :address4, "Address" %>
+    <%= form.text_field :address4, id: :pharmacist_address4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone, "Phone Number" %>
+    <%= form.text_field :phone, id: :pharmacist_phone %>
+  </div>
+  <% if current_user.role == "administrator" %>
+
+  <div class="field">
+    <%= form.label :ward_id, "Ward Name" %>
+    <%= form.collection_select :ward_id, @ward.order(:wname), :id, :wname, include_blank: true, :selected => (params[:ward_id]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pharmacy_id, "Pharmacy Name" %>
+    <%= form.grouped_collection_select :pharmacy_id, @ward.order(:wname), :pharmacies, :wname, :id, :pharmacyname, include_blank: true %>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :password, "Password" %>
+    <%= form.password_field :password, id: :pharmacist_password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation, "Confirm Password" %>
+    <%= form.password_field :password_confirmation, id: :pharmacist_password_confirmation %>
+  </div>
+  </div>
+  <div class="actions">
+    <%= form.submit "Submit",class: "btn btn-primary btn-block btn-large" %>
+  </div>
+
+<% end %>
+</div>

@@ -1,0 +1,92 @@
+<div class="row">
+<%= form_for([@doctor.hospital, @doctor]) do |form| %>
+  <% if doctor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+
+      <ul>
+      <% doctor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="col-md-6">
+  <div class="field">
+    <%= form.label :fname,"First Name" %>
+    <%= form.text_field :fname, id: :doctor_fname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lname,"Last Name" %>
+    <%= form.text_field :lname, id: :doctor_lname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email, "Email" %>
+    <%= form.text_field :email, id: :doctor_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title,"Title" %>
+    <%= form.text_field :title, id: :doctor_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address1 %>
+    <%= form.text_field :address1, id: :doctor_address1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address2, "Address" %>
+    <%= form.text_field :address2, id: :doctor_address2 %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :address3, "Address" %>
+    <%= form.text_field :address3, id: :doctor_address3 %>
+  </div>
+  </div>
+<div class="col-md-6">
+
+  <div class="field">
+    <%= form.label :address4, "Address" %>
+    <%= form.text_field :address4, id: :doctor_address4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone, "Phone Number" %>
+    <%= form.text_field :phone, id: :doctor_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ward_id,"Ward Name" %>
+    <%= form.collection_select :ward_id, @ward.order(:wname), :id, :wname, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :roomno %>
+    <%= form.text_field :roomno, id: :doctor_roomno %>
+  </div>
+
+  <div class="field">
+    <%= form.label :specialisation %>
+    <%= form.text_field :specialisation, id: :doctor_specialisation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password, id: :doctor_password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, id: :doctor_password_confirmation %>
+  </div>
+</div>
+  <div class="actions">
+   <%= form.submit "Submit",class: "btn btn-primary btn-block btn-large"%>
+  </div>
+<% end %>
+</div>

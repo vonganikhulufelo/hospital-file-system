@@ -1,0 +1,315 @@
+<div class="row">
+      <button class="btn btn-primary col-md-2" id="btn1">Ward</button>
+      <button class="btn btn-primary col-md-2" id="btn2">Pharmacy</button>
+      <button class="btn btn-primary col-md-2" id="btn3">Pharmacists</button>
+      <button class="btn btn-primary col-md-2" id="btn4">Receptionist</button>
+      <button class="btn btn-primary col-md-2" id="btn5">Nurse</button>
+      <button class="btn btn-primary col-md-2" id="btn6">Doctor</button>
+  </div>
+  <div class="row" id="btn1d"><h2 class="text-center">Wards</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Wname</th>
+      <th>Wardno</th>
+      <th>Hname</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wards.each do |ward| %>
+      <tr>
+        <td><%= ward.wname %></td>
+        <td><%= ward.wardno %></td>
+        <td><%= ward.hname %></td>
+        <td><%= link_to 'Edit', edit_hospital_ward_path(ward.hospital,ward) %></td>
+        <td><%= link_to 'Destroy', hospital_wards_path(ward.hospital), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ward', new_hospital_ward_path(current_user.hospital_id) %>
+
+</div>
+<div class="row" id="btn2d">
+  <h2 class="text-center">Pharmacies</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Pharmacyno</th>
+      <th>Pharmacy name</th>
+      <th>Wname</th>
+      <th>Hname</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pharmacies.each do |pharmacy| %>
+      <tr>
+        <td><%= pharmacy.pahrmacyno %></td>
+        <td><%= pharmacy.pharmacyname %></td>
+        <td><%= pharmacy.wname %></td>
+        <td><%= pharmacy.hname %></td>
+        <td><%= link_to 'Show', [pharmacy.hospital,pharmacy] %></td>
+        <td><%= link_to 'Edit', edit_hospital_pharmacy_path([pharmacy.hospital_id],pharmacy) %></td>
+        <td><%= link_to 'Destroy', hospital_path(current_user.hospital_id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pharmacy', new_hospital_pharmacy_path(current_user.hospital_id) %>
+
+</div>
+<div class="row" id="btn3d">
+  <h2 class="text-center">Pharmacists</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Fname</th>
+      <th>Lname</th>
+      <th>Email</th>
+      <th>Title</th>
+      <th>Wname</th>
+      <th>Pharmacyno</th>
+      <th>Role</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pharmacists.each do |pharmacist| %>
+      <tr>
+        <td><%= pharmacist.fname %></td>
+        <td><%= pharmacist.lname %></td>
+        <td><%= pharmacist.email %></td>
+        <td><%= pharmacist.title %></td>
+        <td><%= pharmacist.wname %></td>
+        <td><%= pharmacist.pharmacyno %></td>
+        <td><%= pharmacist.role %></td>
+        <td><%= link_to 'Show', [pharmacist.hospital,pharmacist] %></td>
+        <td><%= link_to 'Edit', edit_hospital_pharmacist_path([pharmacist.hospital,pharmacist]) %></td>
+        <td><%= link_to 'Destroy', hospital_pharmacists_path(current_user.hospital_id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pharmacist', new_hospital_pharmacist_path(current_user.hospital_id) %>
+
+  </div>
+  <div class="row" id="btn4d">
+    <h2 class="text-center">Receptionists</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Fname</th>
+      <th>Lname</th>
+      <th>Email</th>
+      <th>Title</th>
+      <th>Wname</th>
+      <th>Role</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @receptionists.each do |receptionist| %>
+      <tr>
+        <td><%= receptionist.fname %></td>
+        <td><%= receptionist.lname %></td>
+        <td><%= receptionist.email %></td>
+        <td><%= receptionist.title %></td>
+        <td><%= receptionist.wname %></td>
+        <td><%= receptionist.role %></td>
+        <td><%= link_to 'Show', [receptionist.hospital,receptionist] %></td>
+        <td><%= link_to 'Edit', edit_hospital_receptionist_path([receptionist.hospital,receptionist]) %></td>
+        <td><%= link_to 'Destroy', hospital_receptionists_path(current_user.hospital_id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Receptionist', new_hospital_receptionist_path(current_user.hospital_id) %>
+
+  </div>
+  <div class="row" id="btn5d">
+    <h2 class="text-center">Nurses</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Fname</th>
+      <th>Lname</th>
+      <th>Email</th>
+      <th>Title</th>
+      <th>Wname</th>
+      <th>Roomno</th>
+      <th>Role</th>
+      <th>Specialisation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nurses.each do |nurse| %>
+      <tr>
+        <td><%= nurse.fname %></td>
+        <td><%= nurse.lname %></td>
+        <td><%= nurse.email %></td>
+        <td><%= nurse.title %></td>
+        <td><%= nurse.wname %></td>
+        <td><%= nurse.roomno %></td>
+        <td><%= nurse.role %></td>
+        <td><%= nurse.specialisation %></td>
+        <td><%= link_to 'Show', [nurse.hospital,nurse] %></td>
+        <td><%= link_to 'Edit', edit_hospital_nurse_path([nurse.hospital,nurse]) %></td>
+        <td><%= link_to 'Destroy', hospital_nurses_path(current_user.hospital_id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nurse', new_hospital_nurse_path(current_user.hospital_id) %>
+
+  </div>
+  <div class="row" id="btn6d">
+    <h2 class="text-center">Doctors</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Fname</th>
+      <th>Lname</th>
+      <th>Email</th>
+      <th>Title</th>
+      <th>Wname</th>
+      <th>Roomno</th>
+      <th>Role</th>
+      <th>Specialisation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @doctors.each do |doctor| %>
+      <tr>
+        <td><%= doctor.fname %></td>
+        <td><%= doctor.lname %></td>
+        <td><%= doctor.email %></td>
+        <td><%= doctor.title %></td>
+        <td><%= doctor.wname %></td>
+        <td><%= doctor.roomno %></td>
+        <td><%= doctor.role %></td>
+        <td><%= doctor.specialisation %></td>
+        <td><%= link_to 'Show', [doctor.hospital,doctor] %></td>
+        <td><%= link_to 'Edit', edit_hospital_doctor_path([doctor.hospital,doctor]) %></td>
+        <td><%= link_to 'Destroy', hospital_path(current_user.hospital_id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Doctor', new_hospital_doctor_path(current_user.hospital_id) %>
+
+  </div>
+
+<script type="text/javascript">
+  (function ($) {
+$('#btn1').ready(function () {
+  $('#btn3d').fadeOut();
+  $('#btn4d').hide();
+  $('#btn5d').hide();
+  $('#btn6d').hide();
+  $('#btn2d').hide();
+      $('#btn1d').fadeIn();
+  }); 
+
+ })(jQuery);
+(function ($) {
+$('#btn1').click(function () {
+  $('#btn3d').hide();
+  $('#btn4d').hide();
+  $('#btn5d').hide();
+  $('#btn6d').hide();
+  $('#btn2d').hide();
+      $('#btn1d').show();
+  }); 
+ })(jQuery);
+ 
+ (function ($) {
+$('#btn2').click(function () {
+$('#btn1d').hide(); 
+$('#btn3d').hide();
+$('#btn5d').hide();
+  $('#btn6d').hide();
+  $('#btn4d').hide();
+ $('#btn2d').show();
+  });
+ })(jQuery);
+
+ (function ($) {
+$('#btn3').click(function () {
+  $('#btn1d').hide();
+  $('#btn4d').hide();
+  $('#btn5d').hide();
+  $('#btn6d').hide();
+  $('#btn2d').hide();
+      $('#btn3d').show();
+  }); 
+ })(jQuery);
+
+ (function ($) {
+$('#btn4').click(function () {
+  $('#btn3d').hide();
+  $('#btn1d').hide();
+  $('#btn5d').hide();
+  $('#btn6d').hide();
+  $('#btn2d').hide();
+      $('#btn4d').show();
+  }); 
+ })(jQuery);
+
+ (function ($) {
+$('#btn5').click(function () {
+  $('#btn3d').hide();
+  $('#btn4d').hide();
+  $('#btn1d').hide();
+  $('#btn6d').hide();
+  $('#btn2d').hide();
+      $('#btn5d').show();
+  }); 
+ })(jQuery);
+
+ (function ($) {
+$('#btn6').click(function () {
+  $('#btn3d').hide();
+  $('#btn4d').hide();
+  $('#btn5d').hide();
+  $('#btn1d').hide();
+  $('#btn2d').hide();
+      $('#btn6d').show();
+  }); 
+ })(jQuery);
+ </script>
+
+ 

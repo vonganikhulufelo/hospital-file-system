@@ -1,0 +1,54 @@
+<%= form_for([@patientrecord.patient, @patientrecord]) do |form| %>
+  <% if patientrecord.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(patientrecord.errors.count, "error") %> prohibited this patientrecord from being saved:</h2>
+
+      <ul>
+      <% patientrecord.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <% if current_user.role == "nurse" %>
+    <%= form.label :age %>
+    <%= form.number_field :age, id: :patientrecord_age %>
+  </div>
+  <div class="field">
+    <%= form.label :bp %>
+    <%= form.text_field :bp, id: :patientrecord_bp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weight %>
+    <%= form.text_field :weight, id: :patientrecord_weight %>
+  </div>
+  <% end %>
+  
+  <% if current_user.role == "doctor" %>
+  <div class="field">
+    <%= form.label :heartrate %>
+    <%= form.text_field :heartrate, id: :patientrecord_heartrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :illness %>
+    <%= form.text_area :illness, id: :patientrecord_illness %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prescription %>
+    <%= form.text_area :prescription, id: :patientrecord_prescription %>
+  </div>
+<div class="field">
+    <%= form.label :consultation, "Consultation" %>
+    <%= form.date_field :consultation, id: :patientrecord_consultation %>
+  </div
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

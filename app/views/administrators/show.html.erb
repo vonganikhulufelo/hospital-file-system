@@ -1,0 +1,37 @@
+<p>
+  <strong>Fname:</strong>
+  <%= @administrator.fname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @administrator.email %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @administrator.title %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @administrator.phone %>
+</p>
+
+<p>
+  <strong>Officeno:</strong>
+  <%= @administrator.officeno %>
+</p>
+
+<p>
+  <strong>Hname:</strong>
+  <%= @administrator.hname %>
+</p>
+
+<p>
+  <strong>Hospital:</strong>
+  <%= @administrator.hospital %>
+</p>
+
+<%= link_to 'Edit', edit_hospital_administrator_path(@administrator.hospital,@administrator) %> |
+<%= link_to 'Back', hospital_administrators_path %>

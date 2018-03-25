@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fname:</strong>
+  <%= @nurse.fname %>
+</p>
+
+<p>
+  <strong>Lname:</strong>
+  <%= @nurse.lname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @nurse.email %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @nurse.title %>
+</p>
+
+<p>
+  <strong>Address1:</strong>
+  <%= @nurse.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @nurse.phone %>
+</p>
+
+<p>
+  <strong>Wardno:</strong>
+  <%= @nurse.wardno %>
+</p>
+
+<p>
+  <strong>Roomno:</strong>
+  <%= @nurse.roomno %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @nurse.role %>
+</p>
+
+<p>
+  <strong>Hname:</strong>
+  <%= @nurse.hname %>
+</p>
+
+<%= link_to 'Edit', edit_hospital_nurse_path(@nurse.hospital, @nurse) %> |
+<%= link_to 'Back', hospital_nurses_path %>

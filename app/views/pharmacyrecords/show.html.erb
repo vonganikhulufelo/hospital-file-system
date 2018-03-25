@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Collected:</strong>
+  <%= @pharmacyrecord.collected %>
+</p>
+
+<p>
+  <strong>Hospital:</strong>
+  <%= @pharmacyrecord.hospital %>
+</p>
+
+<%= link_to 'Edit', edit_pharmacyrecord_path(@pharmacyrecord) %> |
+<%= link_to 'Back', pharmacyrecords_path %>

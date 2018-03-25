@@ -1,0 +1,35 @@
+
+<div class="row col-mad-6">
+<%= form_for([@pharmacy.hospital, @pharmacy]) do |form| %>
+  <% if pharmacy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pharmacy.errors.count, "error") %> prohibited this pharmacy from being saved:</h2>
+
+      <ul>
+      <% pharmacy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="fild">
+    <%= form.label :pharmacy_no %>
+    <%= form.text_field :pahrmacyno, id: :pharmacy_pharmacyno %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Pharmacy_name %>
+    <%= form.text_field :pharmacyname, id: :pharmacy_pharmacyname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ward_id %>
+    <%= form.collection_select :ward_id, @ward.order(:wname), :id, :wname, include_blank: true %>
+  </div>
+
+  <div class="field">
+     <%= form.submit "Submit",class: "btn btn-primary btn-block btn-large"%>
+  </div>
+<% end %>
+</div>

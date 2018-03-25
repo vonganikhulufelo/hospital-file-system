@@ -1,0 +1,125 @@
+<div class="row">
+<%= form_for([@patient.hospital,@patient]) do |form| %>
+  <% if patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% patient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="col-md-6">
+  <div class="field">
+    <%= form.label :fname, "First Name" %>
+    <%= form.text_field :fname, id: :patient_fname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lname, "Last Name" %>
+    <%= form.text_field :lname, id: :patient_lname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birthdate,"Birth Date" %>
+    <%= form.date_field :birthdate, id: :patient_birthdate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address1, "Address" %>
+    <%= form.text_field :address1, id: :patient_address1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address2, "Address" %>
+    <%= form.text_field :address2, id: :patient_address2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address3, "Address" %>
+    <%= form.text_field :address3, id: :patient_address3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address4, "Address" %>
+    <%= form.text_field :address4, id: :patient_address4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title,"Title" %>
+    <%= form.text_field :title, id: :patient_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :consutation, "Consultation" %>
+    <%= form.date_field :consutation, id: :patient_consutation %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :phone, "Phone Number" %>
+    <%= form.text_field :phone, id: :patient_phone %>
+  </div>
+  </div>
+<div class="col-md-6">
+
+  <div class="field">
+    <%= form.label :bloodtype,"Bood Type" %>
+    <%= form.text_field :bloodtype, id: :patient_bloodtype %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ward_id, "Ward Name" %>
+    <%= form.collection_select :ward_id, @ward.order(:wname), :id, :wname, include_blank: true, :selected => (params[:wardno]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :doctor_id, "Doctor Name" %>
+    <%= form.grouped_collection_select :doctor_id, @ward.order(:wname), :doctors, :wname, :id, :fname, include_blank: true %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :nextname,"Next Of Ken Name" %>
+    <%= form.text_field :nextname, id: :patient_nextname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nextphone,"Next Of Ken Phone Number" %>
+    <%= form.text_field :nextphone, id: :patient_nextphone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nextaddress1,"Next Of Ken Address" %>
+    <%= form.text_field :nextaddress1, id: :patient_nextaddress1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nextaddress2,"Next Of Ken Address" %>
+    <%= form.text_field :nextaddress2, id: :patient_nextaddress2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nextaddress3,"Next Of Ken Address" %>
+    <%= form.text_field :nextaddress3, id: :patient_nextaddress3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nextaddress4,"Next Of Ken Address" %>
+    <%= form.text_field :nextaddress4, id: :patient_nextaddress4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ralationship, "Relationship with Patient" %>
+    <%= form.text_field :ralationship, id: :patient_ralationship %>
+  </div>
+  <div class="field">
+  <%= form.file_field :attachment %>
+</div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

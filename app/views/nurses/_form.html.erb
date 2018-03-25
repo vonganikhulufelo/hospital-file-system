@@ -1,0 +1,84 @@
+<div class="row">
+<%= form_for([@nurse.hospital, @nurse]) do |form| %>
+  <% if nurse.errors.any? %>
+    <div id="error_explanation" class="text-danger center-block">
+      <h2 class="text-danger"><%= pluralize(nurse.errors.count, "error") %> prohibited this nurse from being saved:</h2>
+
+      <ul class="center-block">
+      <% nurse.errors.full_messages.each do |message| %>
+        <li class="text-danger"><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="col-md-6">
+  <div class="field">
+    <%= form.label :fname, "First Name" %>
+    <%= form.text_field :fname, id: :nurse_fname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lname,"Last Name" %>
+    <%= form.text_field :lname, id: :nurse_lname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email, "Email" %>
+    <%= form.email_field :email, id: :nurse_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title, "Title" %>
+    <%= form.text_field :title, id: :nurse_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address1,"Address" %>
+    <%= form.text_field :address1, id: :nurse_address1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address2,"Address" %>
+    <%= form.text_field :address2, id: :nurse_address2 %>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="field">
+    <%= form.label :address3,"Address" %>
+    <%= form.text_field :address3, id: :nurse_address3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address4,"Address" %>
+    <%= form.text_field :address4, id: :nurse_address4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone, "Phone Number" %>
+    <%= form.phone_field :phone, id: :nurse_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ward_id, "Ward Number" %>
+    <%= form.collection_select :ward_id, @ward.order(:wname), :id, :wname, include_blank: true %>
+</div>
+  <div class="field">
+    <%= form.label :roomno, "Room Number" %>
+    <%= form.text_field :roomno, id: :nurse_roomno %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password, id: :nurse_password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, id: :nurse_password_confirmation %>
+  </div>
+</div>
+  <div class="actions">
+    <%= form.submit "Submit", class: "btn btn-primary btn-block btn-large"%>
+  </div>
+<% end %>
+</div>

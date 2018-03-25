@@ -1,0 +1,43 @@
+<h1>Nurses</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Fname</th>
+      <th>Lname</th>
+      <th>Email</th>
+      <th>Title</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Wname</th>
+      <th>Roomno</th>
+      <th>Role</th>
+      <th>Hname</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nurses.each do |nurse| %>
+      <tr>
+        <td><%= nurse.fname %></td>
+        <td><%= nurse.lname %></td>
+        <td><%= nurse.email %></td>
+        <td><%= nurse.title %></td>
+        <td><%= nurse.address %></td>
+        <td><%= nurse.phone %></td>
+        <td><%= nurse.wname %></td>
+        <td><%= nurse.roomno %></td>
+        <td><%= nurse.role %></td>
+        <td><%= nurse.hname %></td>
+        <td><%= link_to 'Show', [nurse.hospital, nurse] %></td>
+        <td><%= link_to 'Edit', edit_hospital_nurse_path(nurse.hospital, nurse) %></td>
+        <td><%= link_to 'Destroy', hospital_nurses_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nurse', new_hospital_nurse_path %>

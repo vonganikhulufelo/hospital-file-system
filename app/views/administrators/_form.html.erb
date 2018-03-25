@@ -1,0 +1,81 @@
+<div class="row">
+<%= form_for([@administrator.hospital, @administrator]) do |form| %>
+  <% if @administrator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@administrator.errors.count, "error") %> prohibited this administrator from being saved:</h2>
+
+      <ul>
+      <% @administrator.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="col-md-6">
+  <div class="field">
+    <%= form.label :fname,"First Name" %>
+    <%= form.text_field :fname, id: :administrator_fname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lname,"Last Name" %>
+    <%= form.text_field :lname, id: :administrator_lname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email, "Email" %>
+    <%= form.text_field :email, id: :administrator_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title,"Title" %>
+    <%= form.text_field :title, id: :administrator_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address1,"Address" %>
+    <%= form.text_field :address1, id: :administrator_address1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address2,"Address" %>
+    <%= form.text_field :address2, id: :administrator_address2 %>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="field">
+    <%= form.label :address3,"Address" %>
+    <%= form.text_field :address3, id: :administrator_address3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address4,"Address" %>
+    <%= form.text_field :address4, id: :administrator_address4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone,"Phone Number" %>
+    <%= form.text_field :phone, id: :administrator_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :officeno,"Office Number" %>
+    <%= form.text_field :officeno, id: :administrator_officeno %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password, id: :administrator_password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, id: :administrator_password_confirmation %>
+  </div>
+</div">
+
+  <div class="actions">
+    <%= form.submit "Submit",class: "btn btn-primary btn-block btn-large" %>
+  </div>
+<% end %>
+</div>

@@ -1,0 +1,28 @@
+<%= form_for([@ward.hospital, @ward]) do |form| %>
+  <% if ward.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ward.errors.count, "error") %> prohibited this ward from being saved:</h2>
+
+      <ul>
+      <% ward.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :Ward_Name %>
+    <%= form.text_field :wname, id: :ward_wname,class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Ward_no %>
+    <%= form.text_field :wardno, id: :ward_wardno,class: "form-control"  %>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.submit "Submit",class: "btn btn-default col-md-12" %>
+  </div>
+<% end %>

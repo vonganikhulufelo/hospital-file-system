@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fname:</strong>
+  <%= @receptionist.fname %>
+</p>
+
+<p>
+  <strong>Lname:</strong>
+  <%= @receptionist.lname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @receptionist.email %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @receptionist.title %>
+</p>
+
+<p>
+  <strong>Address1:</strong>
+  <%= @receptionist.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @receptionist.phone %>
+</p>
+
+<p>
+  <strong>Wardno:</strong>
+  <%= @receptionist.wardno %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @receptionist.role %>
+</p>
+
+<p>
+  <strong>Hname:</strong>
+  <%= @receptionist.hname %>
+</p>
+
+<%= link_to 'Edit', edit_hospital_receptionist_path(@receptionist.hospital, @receptionist) %> |
+<%= link_to 'Back', hospital_receptionists_path %>

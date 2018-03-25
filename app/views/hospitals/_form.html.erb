@@ -1,0 +1,47 @@
+<%= form_with(model: hospital, local: true) do |form| %>
+  <% if hospital.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hospital.errors.count, "error") %> prohibited this hospital from being saved:</h2>
+
+      <ul>
+      <% hospital.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :hname,"Hospital Name" %>
+    <%= form.text_field :hname, id: :hospital_hname,class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :htellphone,"Hospital Contact" %>
+    <%= form.text_field :htellphone, id: :hospital_htellphone,class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :haddress1,"Address" %>
+    <%= form.text_field :haddress1, id: :hospital_haddress1,class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :haddress2,"Address" %>
+    <%= form.text_field :haddress2, id: :hospital_haddress2,class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :haddress3,"Address" %>
+    <%= form.text_field :haddress3, id: :hospital_haddress3,class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :haddresscode,"Address" %>
+    <%= form.text_field :haddresscode, id: :hospital_haddresscode,class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit "Submit",class: "btn btn-primary btn-block btn-large"%>
+  </div>
+<% end %>

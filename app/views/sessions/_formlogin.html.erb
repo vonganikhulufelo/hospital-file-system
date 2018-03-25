@@ -1,0 +1,12 @@
+<div class="container">
+<div class="login">
+    <h1>Login</h1>
+    <%= form_tag login_path do %>
+        <%= email_field_tag :email, params[:email], class: 'form-control',placeholder: "Username"%>
+        <%= link_to '(Forget password)', new_password_reset_path,id: "resetlink" %>
+        <%= password_field_tag :password,nil, class: 'form-control',placeholder: "Password"%>
+        <%= button_tag "Let me in.", class: "btn btn-primary btn-block btn-large" %>
+    <% end %>
+    <br>
+</div>
+</div>

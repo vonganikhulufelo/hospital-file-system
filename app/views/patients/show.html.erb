@@ -1,0 +1,115 @@
+<% if current_user.role == "receptionist" %>
+<%= link_to 'Edit patient details', edit_hospital_patient_path([@patient.hospital_id]), class: "btn btn-primary" %>
+<% end %>
+<p><%= link_to "Print Patient Records (PDF)", hospital_patient_path(current_user.hospital_id,@patient.id, format: "pdf") %></p>
+<div class="row">
+  <div class="col-md-6">
+    <h1>Pateint Details</h1>
+<p>
+  <strong>Fname:</strong>
+  <%= @patient.fname %>
+</p>
+
+<p>
+  <strong>Lname:</strong>
+  <%= @patient.lname %>
+</p>
+
+<p>
+  <strong>Birthdate:</strong>
+  <%= @patient.birthdate %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @patient.address %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @patient.title %>
+</p>
+
+<p>
+  <strong>Consutation:</strong>
+  <%= @patient.consutation %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @patient.phone %>
+</p>
+
+<p>
+  <strong>Bloodtype:</strong>
+  <%= @patient.bloodtype %>
+</p>
+</div>
+<div class="col-md-6">
+  <h1>Next Of Ken Details</h1>
+<p>
+  <strong>Nextname:</strong>
+  <%= @patient.nextname %>
+</p>
+
+<p>
+  <strong>Nextphone:</strong>
+  <%= @patient.nextphone %>
+</p>
+
+<p>
+  <strong>Nextaddress:</strong>
+  <%= @patient.nextaddress %>
+</p>
+
+<p>
+  <strong>Ralationship:</strong>
+  <%= @patient.ralationship %>
+</p>
+
+<p>
+  <strong>Hospital:</strong>
+  <%= @patient.hname %>
+</p>
+
+<p>
+  <strong>Ward:</strong>
+  <%= @patient.wname %>
+</p>
+
+<p>
+  <strong>Doctor:</strong>
+  <%= @patient.dname %>
+</p>
+</div>
+</div>
+<h2 class="text-center">Patient Records</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Age</th>
+      <th>Bp</th>
+      <th>Heartrate</th>
+      <th>Weight</th>
+      <th>Illness</th>
+      <th>Prescription</th>
+      <th>Drugcollected</th>
+      <th>Visited</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patient.patientrecords.each do |patientrecord| %>
+      <tr>
+        <td><%= patientrecord.age %></td>
+        <td><%= patientrecord.bp %></td>
+        <td><%= patientrecord.heartrate %></td>
+        <td><%= patientrecord.weight %></td>
+        <td><%= patientrecord.illness %></td>
+        <td><%= patientrecord.prescription %></td>
+        <td><%= patientrecord.drugcollected %></td>
+        <td><%= patientrecord.created_at.strftime("%B %d, %Y") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

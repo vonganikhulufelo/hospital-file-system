@@ -1,0 +1,38 @@
+<h2 class="text-center">Patient Details</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Fname</th>
+      <th>Lname</th>
+      <th>Birthdate</th>
+      <th>Address</th>
+      <th>Title</th>
+      <th>Consutation</th>
+      <th>Wname</th>
+      <th>Dname</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.fname %></td>
+        <td><%= patient.lname %></td>
+        <td><%= patient.birthdate.strftime("%B %d, %Y") %></td>
+        <td><%= patient.address %></td>
+        <td><%= patient.title %></td>
+        <td><%= patient.consutation.strftime("%B %d, %Y") %></td>
+        <td><%= patient.wname %></td>
+        <td><%= patient.dname %></td>
+        <td><%= link_to 'View', [patient.hospital, patient] %></td>
+        <% if current_user.role == 'nurse' %>
+        <td><%= link_to 'Examine', patient_patientrecords_path([patient]) %></td>
+        <% end %>
+        <% if current_user.role == 'doctor' %>
+        <td><%= link_to 'Examine', patient_patientrecords_path([patient]) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

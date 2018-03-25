@@ -1,0 +1,50 @@
+<h2 class="text-center">Pharmacyrecords</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Age</th>
+      <th>Prescription</th>
+      <th>Visited</th>
+      <th>Drug collection</th>
+
+
+
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patientrecords.each do |pharmacyrecord| %>
+      <tr>
+        <td><%= pharmacyrecord.fname %></td>
+        <td><%= pharmacyrecord.lname %></td>
+        <td><%= pharmacyrecord.age %></td>
+        <td><%= pharmacyrecord.prescription %></td>
+        <td><%= pharmacyrecord.created.strftime("%B %d, %Y") %></td>
+        <% if (pharmacyrecord.collected == nil || pharmacyrecord.collected == " ") && current_user.role == "pharmacist" %>
+        <td><%= form_for([@pharmacyrecord.hospital, @pharmacyrecord]) do |form| %>
+          <div class="field">
+    <%= form.check_box :collected, id: :pharmacyrecord_collected %>
+    <%= form.hidden_field :hospital_id, id: :pharmacyrecord_hospital_id, :value => pharmacyrecord.pid %>
+    <%= form.hidden_field :fname, :value => pharmacyrecord.fname %>
+    <%= form.hidden_field :lname,:value => pharmacyrecord.lname %>
+    <%= form.hidden_field :pid, :value => pharmacyrecord.pid %>
+    <%= form.hidden_field :prid, :value => pharmacyrecord.prid %>
+    <%= form.submit "Submit",class: "btn btn-primary" %>
+  </div>
+
+          <% end %>
+        </td>
+        <% else %>
+          <td><%= pharmacyrecord.collected %></td>
+        <% end%>
+
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>

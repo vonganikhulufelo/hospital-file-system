@@ -1,0 +1,36 @@
+<p>
+  <strong>Age:</strong>
+  <%= @patientrecord.age %>
+</p>
+
+<p>
+  <strong>Bp:</strong>
+  <%= @patientrecord.bp %>
+</p>
+
+<p>
+  <strong>Heartrate:</strong>
+  <%= @patientrecord.heartrate %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @patientrecord.weight %>
+</p>
+
+<p>
+  <strong>Illness:</strong>
+  <%= @patientrecord.illness %>
+</p>
+
+<p>
+  <strong>Prescription:</strong>
+  <%= @patientrecord.prescription %>
+</p>
+
+<p>
+  <strong>Drugcollected:</strong>
+  <%= @patientrecord.drugcollected %>
+</p>
+
+<%= render 'form', patientrecord: @patientrecord %>

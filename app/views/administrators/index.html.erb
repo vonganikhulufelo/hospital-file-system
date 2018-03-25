@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Administrators</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Fname</th>
+      <th>Lname</th>
+      <th>Email</th>
+      <th>Title</th>
+      <th>Address1</th>
+      <th>Address2</th>
+      <th>Address3</th>
+      <th>Address4</th>
+      <th>Phone</th>
+      <th>Officeno</th>
+      <th>Hospital</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @administrators.each do |administrator| %>
+      <tr>
+        <td><%= administrator.fname %></td>
+        <td><%= administrator.lname %></td>
+        <td><%= administrator.email %></td>
+        <td><%= administrator.title %></td>
+        <td><%= administrator.address1 %></td>
+        <td><%= administrator.address2 %></td>
+        <td><%= administrator.address3 %></td>
+        <td><%= administrator.address4 %></td>
+        <td><%= administrator.phone %></td>
+        <td><%= administrator.officeno %></td>
+        <td><%= administrator.hname %></td>
+        <td><%= link_to 'Show', [administrator.hospital,administrator] %></td>
+        <td><%= link_to 'Edit', edit_hospital_administrator_path(administrator.hospital,administrator) %></td>
+        <td><%= link_to 'Destroy', hospital_administrators_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Administrator', new_hospital_administrator_path %>

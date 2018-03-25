@@ -1,0 +1,43 @@
+<h1>Pharmacists</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Fname</th>
+      <th>Lname</th>
+      <th>Email</th>
+      <th>Title</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Wname</th>
+      <th>Pharmacyno</th>
+      <th>Role</th>
+      <th>Hname</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pharmacists.each do |pharmacist| %>
+      <tr>
+        <td><%= pharmacist.fname %></td>
+        <td><%= pharmacist.lname %></td>
+        <td><%= pharmacist.email %></td>
+        <td><%= pharmacist.title %></td>
+        <td><%= pharmacist.address %></td>
+        <td><%= pharmacist.phone %></td>
+        <td><%= pharmacist.wname %></td>
+        <td><%= pharmacist.pharmacyno %></td>
+        <td><%= pharmacist.role %></td>
+        <td><%= pharmacist.hname %></td>
+        <td><%= link_to 'Show', [pharmacist.hospital, pharmacist] %></td>
+        <td><%= link_to 'Edit', edit_hospital_pharmacist_path(pharmacist.hospital, pharmacist) %></td>
+        <td><%= link_to 'Destroy', hospital_path(pharmacist.hospital), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pharmacist', new_hospital_pharmacist_path %>

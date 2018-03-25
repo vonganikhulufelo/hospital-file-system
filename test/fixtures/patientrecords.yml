@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  age: 1
+  heartrate: MyString
+  weight: 9.99
+  illness: MyText
+  prescription: MyText
+  drugcollected: false
+  patient: one
+
+two:
+  age: 1
+  heartrate: MyString
+  weight: 9.99
+  illness: MyText
+  prescription: MyText
+  drugcollected: false
+  patient: two

@@ -24,13 +24,13 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address:              'mail.domain.com',
-  port:                 '25',
-  domain:               'heroku.com',
+  address:              'smtp.gmail.com',
+  port:                 '587',
+  domain:               'gmail.com',
   user_name:            'vonganiapp@gmail.com',
   password:             'ABC123@q',
   authentication:       'plain',
-  enable_starttls_auto: false  }
+  enable_starttls_auto: true  }
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.

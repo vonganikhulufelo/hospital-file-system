@@ -5,7 +5,7 @@ class PharmacyrecordsController < ApplicationController
   # GET /pharmacyrecords.json
   def index
     hospital = Hospital.find(params[:hospital_id])
-    @patientrecords = hospital.patients.joins(:patientrecords).select('patients.fname as fname, patients.lname as lname, patientrecords.age as age, patients.consutation as consultation, patientrecords.drugcollected as collected, patientrecords.prescription as prescription, patientrecords.id as prid, patientrecords.patient_id as pid, patientrecords.created_at as created').group('patients.id, patientrecords.id').search(params[:search])
+    @patientrecords = hospital.patients.joins(:patientrecords).select('patients.fname as fname, patients.lname as lname, patientrecords.age as age, patients.consutation as consultation, patientrecords.drugcollected as collected, patientrecords.prescription as prescription, patientrecords.id as prid, patientrecords.patient_id as pid, patientrecords.created_at as created').where("patientrecords.created_at >= ?", Date.today).group('patients.id, patientrecords.id').search(params[:search])
    @pharmacyrecord = hospital.pharmacyrecords.build
   end
 

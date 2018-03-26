@@ -19,12 +19,6 @@ validates :phone, presence: true, format: { with: regex, :multiline => true }
    self.hospital_token = hospital.hospital_token
  	 hospital.save
 	end
-  
-	def generate_token(column)
-    begin
-      self[column] = SecureRandom.urlsafe_base64
-    end while Administrator.exists?(column => self[column])
-  end
 
 	def send_password_reset
 	  generate_token(:password_reset_token)

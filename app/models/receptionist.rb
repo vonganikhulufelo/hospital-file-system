@@ -21,12 +21,5 @@ validates :fname, :lname,:address1,:address2, :address4, :title, presence: true
  	 ward = Ward.find(self.ward_id)
  	 self.wname = ward.wname
  	 ward.save
- 	 generate_token(:receptionist_token)
 	end
-
-  def generate_token(column)
-    begin
-      self[column] = SecureRandom.urlsafe_base64
-    end while Receptionist.exists?(column => self[column])
-  end
 end

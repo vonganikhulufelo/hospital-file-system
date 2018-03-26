@@ -22,12 +22,5 @@ validates :phone, presence: true, format: { with: regex, :multiline => true }
  	 ward = Ward.find(self.ward_id)
  	 self.wname = ward.wname
  	 ward.save
-   generate_token(:nurse_token)
 	end
-
-  def generate_token(column)
-    begin
-      self[column] = SecureRandom.urlsafe_base64
-    end while Nurse.exists?(column => self[column])
-  end
 end

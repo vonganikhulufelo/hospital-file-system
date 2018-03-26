@@ -25,12 +25,5 @@ validates :phone, presence: true, format: { with: regex, :multiline => true }
    pharmacy = Pharmacy.find(self.pharmacy_id)
    self.pharmacyname = pharmacy.pharmacyname
    pharmacy.save
-   generate_token(:pharmacist_token)
 	end
-
-  def generate_token(column)
-    begin
-      self[column] = SecureRandom.urlsafe_base64
-    end while Pharmacist.exists?(column => self[column])
-  end
 end

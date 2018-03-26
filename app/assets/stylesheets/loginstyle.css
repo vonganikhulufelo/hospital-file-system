@@ -45,7 +45,7 @@ body {
 	-ms-transition: box-shadow .5s ease;
 	transition: box-shadow .5s ease;
 }
-.new_doctor input, .edit_doctor input, .new_pharmacist input, #pharmacist_wardno, .edit_pharmacist input, #patient_ward_id, #patient_doctor_id, #receptionist_ward_id { 
+.new_doctor input, .edit_doctor input, .new_pharmacist input, #pharmacist_wardno, .edit_pharmacist input, #patient_ward_id, #patient_doctor_id, #receptionist_ward_id, .edit_hospital input { 
 	width: 100%; 
 	margin-bottom: 10px; 
 	background: rgba(0,0,0,0.3);

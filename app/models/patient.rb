@@ -10,6 +10,7 @@ validates :phone,:nextphone, presence: true, format: { with: regex, :multiline =
 validates :fname, :lname,:birthdate,:address1,:address2, :address4, :title, :consutation, presence: true
 validates :nextname, :nextaddress1,:nextaddress2,:nextaddress4,:ralationship, presence: true
 validate :date_not_in_past
+validate :date_of_birth
   def addaddress
  	 self.address = [self.address1, self.address2, self.address3, self.address4].compact.join(', ')
  	 self.nextaddress = [self.nextaddress1, self.nextaddress2, self.nextaddress3, self.nextaddress4].compact.join(', ')
@@ -34,6 +35,12 @@ def self.search(search)
   def date_not_in_past
     if consutation.present? && consutation < Date.today
       errors.add(:consutation, "can't be in the past")
+    end
+  end
+
+  def date_of_birth
+    if birthdate.present? && birthdate > Date.today
+      errors.add(:birthdate, "invalid")
     end
   end
 end

@@ -59,12 +59,12 @@
     <%= form.label :phone, "Phone Number" %>
     <%= form.text_field :phone, id: :doctor_phone %>
   </div>
-
+<% if current_user.role == "administrator" %>
   <div class="field">
     <%= form.label :ward_id,"Ward Name" %>
     <%= form.collection_select :ward_id, @ward.order(:wname), :id, :wname, include_blank: true %>
   </div>
-
+<% end %>
   <div class="field">
     <%= form.label :roomno %>
     <%= form.text_field :roomno, id: :doctor_roomno %>

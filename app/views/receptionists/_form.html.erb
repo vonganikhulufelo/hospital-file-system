@@ -57,12 +57,12 @@
     <%= form.label :phone %>
     <%= form.text_field :phone, id: :receptionist_phone %>
   </div>
-
+<% if current_user.role == "administrator" %>
   <div class="field">
     <%= form.label :ward_id, "Ward" %>
     <%= form.collection_select :ward_id, @ward.order(:wname), :id, :wname, include_blank: true %>
   </div>
-
+<% end %>
   <div class="field">
     <%= form.label :password, "password" %>
     <%= form.password_field :password, id: :receptionist_password %>
